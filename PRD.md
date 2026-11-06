@@ -26,6 +26,9 @@ Nova is a portfolio and client acquisition landing page for an independent digit
 | **Hero** | `#home` | Asymmetric split layout (copy left, diagram right) | Hook visitors with display typography (*"Make your next digital move matter."*), establish editorial tone, offer dual CTAs, and showcase custom vector art. |
 | **About** | `#about` | 2-column narrative with border-delimited proof strip | Articulate studio ethos (*"A good idea deserves a better digital life"*), establish craft philosophy, and display four quantitative proof metrics. |
 | **Services** | `#services` | Full-width inverted dark theme (`--ink` background) | Present the 3 core disciplines (01 Strategy, 02 Design, 03 Technology) in an asymmetrical ledger format with direct inquiry cues. |
+| **Selected Work** | `#work` | 3-column editorial grid on light `--paper` | Showcase 3 conceptual digital products with technology badges, category labels, and custom geometric previews. |
+| **Our Process** | `#process` | 4-column sequential ledger with border dividers | Explain the 4-phase project delivery method (Discover, Strategize, Create, Deliver) in an easy-to-follow sequence. |
+| **FAQ** | `#faq` | Single-open interactive accordion | Answer 5 key prospective client questions with full keyboard accessibility and smooth CSS height transitions. |
 | **Contact** | `#contact` | Open intake desk layout with fallback email | Convert high-intent leads via an interactive 4-field inquiry form, with real-time error hints and submission feedback. |
 | **Site Footer** | `.site-footer` | Minimal border-top grid | Provide brand mark, studio motto, accessible back-to-top scroll jump, and copyright. |
 
@@ -55,7 +58,16 @@ Nova is a portfolio and client acquisition landing page for an independent digit
 - **Implementation**: Vanilla JS in `script.js` (`initScrollspy()`) using browser-native `IntersectionObserver`.
 - **Behavior**: Observes viewport entry of `#home`, `#about`, `#services`, and `#contact` (with `-25% 0px -65% 0px` root margin) to apply `.is-active` and `aria-current="page"` to the header navigation links.
 
-### 3.4 Reduced-Motion Awareness
+### 3.4 Interactive FAQ Accordion
+- **Implementation**: Vanilla JS in `script.js` (`initFaqAccordion()`).
+- **Behavior**:
+  - Semantic `<button class="faq-trigger">` controls `<div class="faq-panel">` using `aria-expanded` and `aria-controls`.
+  - Single-open accordion pattern: expanding an item automatically collapses any currently open item to maintain visual focus.
+  - Clicking an expanded item collapses it.
+  - CSS grid transition (`grid-template-rows: 0fr -> 1fr`) ensures smooth, layout-safe expansion without fixed height constraints.
+  - Fully accessible via standard keyboard navigation (Tab, Enter, Space).
+
+### 3.5 Reduced-Motion Awareness
 - **Implementation**: CSS `@media (prefers-reduced-motion: reduce)` collapses all animation and transition durations to `0.01ms`. JavaScript checks `window.matchMedia('(prefers-reduced-motion: reduce)')` to force instant scrolling (`behavior: 'auto'`) on form feedback jumps.
 
 ---
@@ -130,7 +142,7 @@ Modular 8pt-based token scale:
 ## 6. Future Work *(Post-Launch Enhancements)*
 
 These features are intentionally excluded from the initial release to maintain an unbloated codebase, and can be added once real assets exist:
-1. **Selected Work / Case Studies**: A visual grid or horizontal scroll showcase placed between *Services* and *Contact* once 2–3 client case studies and high-resolution imagery are available.
+1. **Selected Work Case Studies Expansion**: Additional deep-dive case study pages with high-resolution client imagery as client partnerships expand (Foundational 3 conceptual cards implemented in v1.1).
 2. **Client Testimonials / Quotes**: Editorial quote callouts from past clients embedded into the *About* or *Services* section.
 3. **Interactive Budget / Timeline Selectors**: Segmented pill selectors inside the contact form for project budget ranges.
-4. **Custom Domain Hosting Assets**: Production `robots.txt`, XML sitemap (`sitemap.xml`), and a dedicated 1200x630px social preview image (`og:image`).
+4. **Dedicated Social Preview Image**: Branded 1200x630px `og:image` graphic placed at `/og-image.jpg`.
