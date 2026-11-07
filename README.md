@@ -42,10 +42,10 @@ Growth-stage businesses often struggle to communicate a clear, compelling digita
 1. **Home (`#home`)**: Asymmetric hero layout with display typography, dual conversion CTAs, and custom geometric SVG diagram artwork.
 2. **About (`#about`)**: Two-column studio ethos narrative with border-delimited proof strip featuring 4 quantitative studio metrics.
 3. **What We Do (`#services`)**: Full-width inverted dark theme (`--ink` background) presenting 3 core disciplines (01 Strategy, 02 Design, 03 Technology) in an asymmetrical ledger.
-4. **Selected Work (`#work`)**: Portfolio showcase featuring 3 curated conceptual projects with category metadata, descriptions, technology badges, and concept preview cues.
+4. **Selected Work (`#work`)**: Portfolio showcase featuring 3 curated conceptual projects with category metadata, descriptions, technology badges, and an interactive project-details modal dialog triggered by clicking cards or preview action buttons.
 5. **Our Process (`#process`)**: 4-stage sequential project methodology (01 Discover, 02 Strategize, 03 Create, 04 Deliver) in a clean numbered ledger.
 6. **FAQ (`#faq`)**: Interactive, keyboard-accessible accordion answering 5 common questions with single-open toggle behavior and smooth CSS transitions.
-7. **Contact (`#contact`)**: Open intake desk layout with client-side validated 4-field inquiry form, direct email fallback, and Formspree async delivery.
+7. **Contact (`#contact`)**: Open intake desk layout with client-side validated 4-field inquiry form, direct email fallback, and dynamic Formspree endpoint delivery.
 
 ---
 
@@ -56,6 +56,7 @@ Growth-stage businesses often struggle to communicate a clear, compelling digita
 - **About section** with studio narrative and four quantitative proof metrics
 - **Services section** with full-width dark theme and three discipline rows (Strategy, Design, Technology)
 - **Selected Work showcase** with 3 project cards, technology tags, and bespoke geometric art
+- **Interactive Project Details Modal** — accessible modal dialog (`role="dialog"`, `aria-modal="true"`) displaying concept notice, deep editorial overview, key design features, technology stack, close triggers (button, Escape key, backdrop click), focus trapping, and background scroll locking
 - **Our Process ledger** presenting 4 project delivery phases (Discover, Strategize, Create, Deliver)
 - **Accessible FAQ accordion** with semantic buttons, `aria-expanded`, `aria-controls`, and `role="region"` bindings
 - **Contact section** with client-side validated intake form and Formspree submission

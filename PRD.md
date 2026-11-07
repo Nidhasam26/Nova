@@ -70,6 +70,16 @@ Nova is a portfolio and client acquisition landing page for an independent digit
 ### 3.5 Reduced-Motion Awareness
 - **Implementation**: CSS `@media (prefers-reduced-motion: reduce)` collapses all animation and transition durations to `0.01ms`. JavaScript checks `window.matchMedia('(prefers-reduced-motion: reduce)')` to force instant scrolling (`behavior: 'auto'`) on form feedback jumps.
 
+### 3.6 Interactive Project Details Modal (Selected Work)
+- **Implementation**: Vanilla JS in `script.js` (`initProjectModal()`) paired with semantic HTML5 dialog structure (`#project-modal`).
+- **Behavior**:
+  - Clicking any project card or its dedicated `<button class="project-action-btn">` opens the modal dialog.
+  - Dynamically populates project index, category, year, studio concept disclaimer, editorial overview, four key design innovations, and technology stack.
+  - Prominently labeled as a concept study (not a client case study).
+  - Background scroll locking: adds `.modal-open` to `<body>` and `<html>` (`overflow: hidden`).
+  - Closing mechanisms: dedicated accessible close button (`#modal-close-btn`), footer dismiss button (`#modal-dismiss-btn`), Escape key listener, backdrop click listener, and contact link action (`#modal-contact-link` scrolling smoothly to `#contact`).
+  - Accessibility: `role="dialog"`, `aria-modal="true"`, `aria-labelledby="modal-project-title"`, `aria-describedby="modal-project-notice"`, focus trapping within active focusable elements, and automatic focus restoration to the opening button upon dismiss.
+
 ---
 
 ## 4. Design System & Tokens

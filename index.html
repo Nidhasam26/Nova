@@ -167,7 +167,7 @@
             </div>
             <div class="work-grid">
                 <!-- Project 1 -->
-                <article class="project-card">
+                <article class="project-card" data-project-id="digital-experience">
                     <div class="project-preview" aria-hidden="true">
                         <div class="project-preview-canvas preview-experience">
                             <span class="preview-index">PRJ // 01</span>
@@ -192,13 +192,16 @@
                             <li class="tech-tag">JavaScript</li>
                         </ul>
                         <div class="project-footer">
-                            <span class="project-action">Concept preview <span aria-hidden="true">↗</span></span>
+                            <button type="button" class="project-action-btn" data-project-open="digital-experience" aria-haspopup="dialog" aria-controls="project-modal">
+                                <span class="project-action-text">Concept preview</span>
+                                <span class="project-action-icon" aria-hidden="true">↗</span>
+                            </button>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article class="project-card">
+                <article class="project-card" data-project-id="smart-dashboard">
                     <div class="project-preview" aria-hidden="true">
                         <div class="project-preview-canvas preview-dashboard">
                             <span class="preview-index">PRJ // 02</span>
@@ -228,13 +231,16 @@
                             <li class="tech-tag">Responsive Design</li>
                         </ul>
                         <div class="project-footer">
-                            <span class="project-action">Concept preview <span aria-hidden="true">↗</span></span>
+                            <button type="button" class="project-action-btn" data-project-open="smart-dashboard" aria-haspopup="dialog" aria-controls="project-modal">
+                                <span class="project-action-text">Concept preview</span>
+                                <span class="project-action-icon" aria-hidden="true">↗</span>
+                            </button>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 3 -->
-                <article class="project-card">
+                <article class="project-card" data-project-id="creative-platform">
                     <div class="project-preview" aria-hidden="true">
                         <div class="project-preview-canvas preview-platform">
                             <span class="preview-index">PRJ // 03</span>
@@ -265,7 +271,10 @@
                             <li class="tech-tag">JavaScript</li>
                         </ul>
                         <div class="project-footer">
-                            <span class="project-action">Concept preview <span aria-hidden="true">↗</span></span>
+                            <button type="button" class="project-action-btn" data-project-open="creative-platform" aria-haspopup="dialog" aria-controls="project-modal">
+                                <span class="project-action-text">Concept preview</span>
+                                <span class="project-action-icon" aria-hidden="true">↗</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -485,6 +494,38 @@
         <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
         <span class="copyright">© Nova Studio 2026</span>
     </footer>
+
+    <!-- Project Details Modal (Craft in Practice) -->
+    <div class="project-modal-backdrop" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" aria-describedby="modal-project-notice" hidden>
+        <div class="project-modal-dialog">
+            <header class="modal-header-bar">
+                <div class="modal-concept-flag">
+                    <span class="flag-dot" aria-hidden="true"></span>
+                    <span id="modal-project-flag">Studio Concept // Exploratory Study</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close project preview (Esc)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </header>
+            <div class="modal-body" id="modal-body">
+                <!-- Content injected dynamically via script.js -->
+            </div>
+            <footer class="modal-dialog-footer">
+                <div class="modal-footer-copy">
+                    <p class="modal-footer-note">Have a similar concept or project in mind?</p>
+                </div>
+                <div class="modal-footer-actions">
+                    <a href="#contact" class="modal-cta-btn" id="modal-contact-link">
+                        <span>Discuss your project</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    <button type="button" class="modal-dismiss-btn" id="modal-dismiss-btn">
+                        Close
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
 
     <script src="script.js" defer></script>
 </body>
