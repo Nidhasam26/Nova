@@ -259,9 +259,9 @@ function initContactForm() {
         }
 
         const formData = new FormData(form);
+        const endpoint = form.getAttribute('action') || 'https://formspree.io/f/YOUR_ID';
 
-        // TODO: Replace YOUR_ID with your Formspree form ID (e.g. https://formspree.io/f/mqazknyz)
-        fetch('https://formspree.io/f/YOUR_ID', {
+        fetch(endpoint, {
             method: 'POST',
             body: formData,
             headers: {
