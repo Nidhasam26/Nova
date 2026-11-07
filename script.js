@@ -16,6 +16,7 @@ function initMobileMenu() {
     function setMenuState(open) {
         toggle.setAttribute('aria-expanded', String(open));
         navLinks.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
     }
 
     toggle.addEventListener('click', () => {
