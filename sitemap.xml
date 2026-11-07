@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!--
-    TODO: Replace https://yourdomain.com with your verified production domain.
-    Update <lastmod> to reflect the date of your most recent content change.
-  -->
+  
   <url>
-    <loc>https://yourdomain.com/</loc>
+    <loc>https://nova-nexs.netlify.app</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>

@@ -132,12 +132,12 @@ function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    const nameInput    = document.getElementById('contact-name');
-    const emailInput   = document.getElementById('contact-email');
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
     const serviceInput = document.getElementById('contact-service');
     const messageInput = document.getElementById('contact-message');
-    const feedback     = document.getElementById('form-feedback');
-    const submitBtn    = document.getElementById('contact-submit');
+    const feedback = document.getElementById('form-feedback');
+    const submitBtn = document.getElementById('contact-submit');
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -159,8 +159,8 @@ function initContactForm() {
 
     function resetFormState() {
         // Clear all aria-invalid attributes and error messages after a successful send
-        clearFieldError(nameInput,    'name-error');
-        clearFieldError(emailInput,   'email-error');
+        clearFieldError(nameInput, 'name-error');
+        clearFieldError(emailInput, 'email-error');
         clearFieldError(serviceInput, 'service-error');
         clearFieldError(messageInput, 'message-error');
     }
@@ -259,7 +259,7 @@ function initContactForm() {
         }
 
         const formData = new FormData(form);
-        const endpoint = form.getAttribute('action') || 'https://formspree.io/f/YOUR_ID';
+        const endpoint = form.getAttribute('action') || 'https://formspree.io/f/maeezojw';
 
         fetch(endpoint, {
             method: 'POST',
@@ -268,63 +268,63 @@ function initContactForm() {
                 'Accept': 'application/json'
             }
         })
-        .then((response) => {
-            if (response.ok) {
-                feedback.innerHTML = `
+            .then((response) => {
+                if (response.ok) {
+                    feedback.innerHTML = `
                     <div class="feedback-card feedback-card--success">
                         <strong>Thank you, ${escapeHtml(nameVal)}.</strong>
                         <p>Your inquiry has been received. We&rsquo;ll be in touch soon.</p>
                     </div>
                 `;
-                form.reset();
-                resetFormState();
-                // Keep button disabled after a successful send to prevent re-submission
-                // of the same content. The form has been reset so a fresh submission
-                // is a genuinely new inquiry — re-enable after a brief pause.
-                setTimeout(() => {
-                    isSubmitting = false;
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.removeAttribute('aria-busy');
-                    }
-                }, 3000);
-            } else {
-                return response.json().catch(() => ({})).then((data) => {
-                    // Surface Formspree-specific error messages when available
-                    const reason = (data && data.error) ? data.error : 'There was a problem sending your message. Please try again or email us directly.';
-                    feedback.innerHTML = `
+                    form.reset();
+                    resetFormState();
+                    // Keep button disabled after a successful send to prevent re-submission
+                    // of the same content. The form has been reset so a fresh submission
+                    // is a genuinely new inquiry — re-enable after a brief pause.
+                    setTimeout(() => {
+                        isSubmitting = false;
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.removeAttribute('aria-busy');
+                        }
+                    }, 3000);
+                } else {
+                    return response.json().catch(() => ({})).then((data) => {
+                        // Surface Formspree-specific error messages when available
+                        const reason = (data && data.error) ? data.error : 'There was a problem sending your message. Please try again or email us directly.';
+                        feedback.innerHTML = `
                         <div class="feedback-card feedback-card--error">
                             <strong>Submission failed.</strong>
                             <p>${escapeHtml(reason)}</p>
                         </div>
                     `;
-                    isSubmitting = false;
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.removeAttribute('aria-busy');
-                    }
-                });
-            }
-        })
-        .catch(() => {
-            feedback.innerHTML = `
+                        isSubmitting = false;
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.removeAttribute('aria-busy');
+                        }
+                    });
+                }
+            })
+            .catch(() => {
+                feedback.innerHTML = `
                 <div class="feedback-card feedback-card--error">
                     <strong>Network error.</strong>
                     <p>Your message could not be sent. Check your connection and try again, or email us directly.</p>
                 </div>
             `;
-            isSubmitting = false;
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.removeAttribute('aria-busy');
-            }
-        })
-        .finally(() => {
-            feedback.scrollIntoView({
-                behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                block: 'nearest'
+                isSubmitting = false;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.removeAttribute('aria-busy');
+                }
+            })
+            .finally(() => {
+                feedback.scrollIntoView({
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    block: 'nearest'
+                });
             });
-        });
     });
 }
 
